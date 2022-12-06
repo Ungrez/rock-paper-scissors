@@ -21,6 +21,7 @@ body {
   padding: 30px;
   opacity: 0;
   transition: 0.4s;
+  overflow: hidden;
 }
 body.loaded {
   opacity: 1;

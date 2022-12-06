@@ -79,6 +79,7 @@ div#circle img {
   transition: 1s;
   transform: translate(0, 0);
   pointer-events: none;
+  animation: bonuceUser 2s 1s linear forwards;
 }
 #app_game_choice_UI.scissors {
   background: var(--scissors-gradient);
@@ -107,6 +108,39 @@ div#circle img {
   opacity: 1;
   top: 0;
   right: 0;
-  transition: 1s;
+  transition: 0.5s;
   transform: translate(0, 0);
+}
+#app_game_choice div.choice_UI.hide_on_sec {
+  opacity: 0;
+}
+#app_game_choice div.choice_UI.visible::before {
+  content: "THE HOUSE PICKED";
+  position: absolute;
+  bottom: -35%;
+  right: 0;
+  width: 140px;
+  transform: translate(5%);
+  color: white;
+  letter-spacing: 1px;
+}
+#app_game_choice div.user_choice::before {
+  content: "YOU PICKED";
+  position: absolute;
+  bottom: -35%;
+  right: 0;
+  width: 100%;
+  text-align: center;
+  color: white;
+  letter-spacing: 1px;
+  transition: 1s;
+}
+@keyframes bonuceUser {
+  0% {
+    box-shadow: 0 0 80px 30px rgba(255, 0, 0, 0);
+  }
+  100% {
+    opacity: 1;
+    box-shadow: 0 0 80px 30px rgb(100, 86, 119);
+  }
 }

@@ -1,0 +1,31 @@
+#app_game_results.visible {
+  opacity: 1;
+  visibility: visible;
+}
+#app_game_results {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  transform: translate(-50%, 70%);
+  text-align: center;
+  opacity: 0;
+  transition: 1s;
+  visibility: hidden;
+}
+#app_game_results p {
+  font-size: 56px;
+  text-transform: uppercase;
+  color: white;
+  margin-bottom: 20px;
+}
+#app_game_results button {
+  width: 70%;
+  height: 50px;
+  border-radius: 10px;
+  border: none;
+  font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: hsl(229, 25%, 31%);
+}

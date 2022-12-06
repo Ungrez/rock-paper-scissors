@@ -7,12 +7,18 @@ class Game {
     this.wonCounter = 0;
     this.UIItem = document.querySelector("#app_game_choice_UI");
     this.UIItemImage = document.querySelector("#UI_image");
+    this.gameResults = document.querySelector("#app_game_results");
+    this.playAgainBtn = document.querySelector("#play_again");
+    this.resultText = document.querySelector("#app_game_result_text");
   }
+
   init() {
     for (const choice of this.choices) {
       choice.addEventListener("click", () => this.userChoice(choice));
     }
+    this.playAgainBtn.addEventListener("click", () => this.restartGame());
   }
+
   userChoice(userChoice) {
     this.user = userChoice.dataset.item;
     this.background.classList.add("hidden");
@@ -29,34 +35,64 @@ class Game {
   scoreParser(userSelect) {
     let UIIndex = Math.round(Math.random() * (this.choices.length - 1));
     let UIChoice = this.choices[UIIndex];
-    let UIDataSet = UIChoice.dataset.item;
-    this.showUIChoice(UIDataSet);
+    var UIDataSet = UIChoice.dataset.item;
+    let won = "you won";
+    let draw = "draw";
+    let lose = "you lose";
 
+    this.showUIChoice(UIDataSet);
     if (userSelect === "paper") {
       if (UIDataSet === "rock") {
-        return (
-          this.wonCounter++,
-          console.log("User wygrał"),
-          (this.score.innerText = this.wonCounter)
-        );
-      } else if (UIDataSet === userSelect) return console.log("Remis");
-      return console.log("User przegrał");
+        return this.gameResult(won);
+      } else if (UIDataSet === userSelect) {
+        return this.gameResult(draw);
+      }
+      return this.gameResult(lose);
     } else if (userSelect === "scissors") {
-      if (UIDataSet === "paper") return console.log("User wygrał");
-      else if (UIDataSet === userSelect) return console.log("Remis");
-      return console.log("User przegrał");
+      if (UIDataSet === "paper") {
+        return this.gameResult(won);
+      } else if (UIDataSet === userSelect) return this.gameResult(draw);
+      return this.gameResult(lose);
     } else {
-      if (UIDataSet === "scissors") return console.log("User wygrał");
-      else if (UIDataSet === userSelect) return console.log("Remis");
-      return console.log("User przegrał");
+      if (UIDataSet === "scissors") {
+        return this.gameResult(won);
+      } else if (UIDataSet === userSelect) return this.gameResult(draw);
+      return this.gameResult(lose);
     }
   }
+
   showUIChoice(UI) {
     setTimeout(() => {
       this.UIItem.classList.add(`visible`);
       this.UIItem.classList.add(`${UI}`);
       this.UIItemImage.src = `/images/icon-${UI}.svg`;
     }, 1000);
+  }
+
+  gameResult(text) {
+    setTimeout(() => {
+      if (text === "you won") {
+        this.wonCounter++;
+        this.score.innerText = this.wonCounter;
+      }
+      this.resultText.innerHTML = text;
+      this.gameResults.classList.add("visible");
+    }, 1000);
+  }
+
+  restartGame() {
+    this.background.classList.remove("hidden");
+    this.user = "";
+    for (const choice of this.choices) {
+      choice.classList.remove("hidden");
+      choice.classList.remove("user_choice");
+    }
+    this.UIItem.classList.add("hide_on_sec");
+    this.gameResults.classList.remove("visible");
+    setTimeout(() => {
+      this.UIItem.classList = "choice_UI";
+      this.UIItem.classList.remove(`visible`);
+    }, 700);
   }
 }
 export const game = new Game();
