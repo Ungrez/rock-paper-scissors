@@ -1,0 +1,175 @@
+:root {
+  --scissors-gradient: linear-gradient(#ec9e0e, #eca922);
+  --paper-gradient: linear-gradient(
+    0deg,
+    rgba(72, 101, 244, 1) 0%,
+    rgba(86, 113, 245, 1) 100%
+  );
+  --rock-gradient: linear-gradient(#dc2e4e, #dd405d);
+  --cyan: linear-gradient(rgb(64, 185, 206) o rgb(82, 190, 209));
+}
+
+#app_game {
+  display: grid;
+  position: relative;
+  place-items: center;
+}
+#app_game_background {
+  max-width: 70%;
+  transition: 0.4s;
+  position: absolute;
+}
+#app_game_background.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+#app_game_choice {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  width: 100%;
+  height: 100%;
+}
+#app_game_choice div.choice {
+  position: absolute;
+  height: 130px;
+  width: 130px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: 0.4s;
+  align-self: center;
+  justify-self: center;
+}
+div#circle {
+  display: grid;
+  height: 100px;
+  width: 100px;
+  background-color: white;
+  border-radius: 50%;
+  place-items: center;
+  transition: 0.4s;
+}
+div#circle img {
+  height: 50%;
+}
+#app_game_choice_paper {
+  grid-area: 1 / 1 / 2 / 2;
+  background: var(--paper-gradient);
+}
+#app_game_choice_scissors {
+  grid-area: 1 / 2 / 2 / 3;
+  background: var(--scissors-gradient);
+}
+#app_game_choice_rock {
+  background: var(--rock-gradient);
+  grid-area: 2 / 1 / 3 / 3;
+}
+#app_game_choice div.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+#app_game_choice div.user_choice {
+  grid-area: 1 / 1 / 2 / 2;
+  pointer-events: none;
+  animation: bonuceUser 2s 1s linear forwards;
+  transition: 1s;
+}
+#app_game_choice_UI.scissors {
+  background: var(--scissors-gradient);
+}
+#app_game_choice_UI.rock {
+  background: var(--rock-gradient);
+}
+#app_game_choice_UI.paper {
+  background: var(--paper-gradient);
+}
+#app_game_choice div.choice_UI {
+  height: 130px;
+  width: 130px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+  transition: 1s;
+  visibility: hidden;
+  background-color: red;
+  opacity: 0;
+}
+#app_game_choice div.choice_UI.visible {
+  position: relative;
+  visibility: visible;
+  opacity: 1;
+  justify-self: center;
+  transition: 0.5s;
+  grid-area: 1 / 2 / 2 / 2;
+  align-self: center;
+}
+#app_game_choice div.choice_UI.hide_on_sec {
+  opacity: 0;
+  pointer-events: none;
+}
+#app_game_choice div.choice_UI.visible::before {
+  content: "THE HOUSE PICKED";
+  position: absolute;
+  bottom: -35%;
+  right: 0;
+  width: 140px;
+  transform: translate(5%);
+  color: white;
+  letter-spacing: 1px;
+}
+#app_game_choice div.user_choice::before {
+  content: "YOU PICKED";
+  position: absolute;
+  bottom: -35%;
+  right: 0;
+  width: 100%;
+  text-align: center;
+  color: white;
+  letter-spacing: 1px;
+  transition: 1s;
+}
+@keyframes bonuceUser {
+  0% {
+    box-shadow: 0 0 80px 30px rgba(255, 0, 0, 0);
+  }
+  100% {
+    opacity: 1;
+    box-shadow: 0 0 80px 30px rgb(100, 86, 119);
+  }
+}
+@media (min-width: 668px) {
+  #app_game_choice {
+    max-width: 500px;
+  }
+}
+@media (min-width: 1024px) {
+  #app_game_choice {
+    margin-top: 100px;
+    max-width: 700px;
+  }
+  #app_game_choice div.choice {
+    height: 250px;
+    width: 250px;
+  }
+  div#circle {
+    height: 200px;
+    width: 200px;
+  }
+  #app_game_choice div.choice_UI {
+    height: 250px;
+    width: 250px;
+  }
+  #app_game_choice div.choice_UI.visible::before {
+    transform: translate(0);
+    right: auto;
+    top: -50px;
+  }
+  #app_game_choice div.user_choice::before {
+    top: -50px;
+  }
+}
