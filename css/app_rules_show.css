@@ -11,10 +11,20 @@
   transition: 0.3s;
   opacity: 0;
   visibility: hidden;
+  box-shadow: 0 0 24px -5px black;
 }
 #app_rules_show.visible {
   opacity: 1;
   visibility: visible;
+}
+#app_rules_show.visible::before {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  content: "";
+  z-index: 0;
 }
 #app_rules_show p {
   text-transform: uppercase;
