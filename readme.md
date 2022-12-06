@@ -25,6 +25,6 @@ The game is based on the design from frontend mentor. Simple game rock-paper-sci
 ![](./screenshots/rules-mobile.PNG)
 ![](./screenshots/game-mobile.PNG)
 
-![](./screenshots/home-mobile.PNG)
-![](./screenshots/rules-mobile.PNG)
-![](./screenshots/game-mobile.PNG)
+![](./screenshots/home-desktop.PNG)
+![](./screenshots/rules-desktop.PNG)
+![](./screenshots/game-desktop.PNG)
