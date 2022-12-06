@@ -81,18 +81,18 @@ class Game {
   }
 
   restartGame() {
-    this.background.classList.remove("hidden");
     this.user = "";
-    for (const choice of this.choices) {
-      choice.classList.remove("hidden");
-      choice.classList.remove("user_choice");
-    }
     this.UIItem.classList.add("hide_on_sec");
     this.gameResults.classList.remove("visible");
     setTimeout(() => {
       this.UIItem.classList = "choice_UI";
       this.UIItem.classList.remove(`visible`);
-    }, 700);
+      for (const choice of this.choices) {
+        choice.classList.remove("hidden");
+        choice.classList.remove("user_choice");
+        this.background.classList.remove("hidden");
+      }
+    }, 1000);
   }
 }
 export const game = new Game();

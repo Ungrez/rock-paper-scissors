@@ -28,4 +28,10 @@
   text-transform: uppercase;
   letter-spacing: 3px;
   color: hsl(229, 25%, 31%);
+  cursor: pointer;
+}
+@media (min-width: 1024px) {
+  #app_game_results button {
+    width: 20%;
+  }
 }

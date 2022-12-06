@@ -25,6 +25,7 @@
   background-color: var(--score-background);
   grid-template-rows: 1fr 2fr;
   text-align: center;
+  place-items: center;
   padding: 10px;
 }
 #app_info_score p {
@@ -38,4 +39,31 @@
   color: var(--dark-text);
   font-size: 40px;
   font-weight: 800;
+}
+@media (min-width: 668px) {
+  #app_info {
+    width: 50%;
+    margin: 0 auto;
+  }
+}
+@media (min-width: 1024px) {
+  #app_info {
+    height: 200px;
+    border-radius: 20px;
+    border: 4px solid var(--header-outline);
+  }
+  #app_info_logo {
+    height: 100%;
+    padding: 0 30px;
+  }
+  #app_info_score {
+    width: 200px;
+    margin-right: 10px;
+  }
+  #app_info_score p {
+    font-size: 22px;
+  }
+  #app_info_score span {
+    font-size: 80px;
+  }
 }
