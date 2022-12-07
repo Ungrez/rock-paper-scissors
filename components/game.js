@@ -65,7 +65,7 @@ class Game {
     setTimeout(() => {
       this.UIItem.classList.add(`visible`);
       this.UIItem.classList.add(`${UI}`);
-      this.UIItemImage.src = `images/icon-${UI}.svg`;
+      this.UIItemImage.src = `rock-paper-scissors/images/icon-${UI}.svg`;
     }, 1000);
   }
 
