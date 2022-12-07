@@ -2,6 +2,8 @@
 
 ## Demo avilable on website
 
+https://ungrez.github.io/rock-paper-scissors/
+
 ## Table of contents
 
 - [General info](#general-info)
