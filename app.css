@@ -1,8 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap");
-@import "./css/app_info.css";
+/* @import "./css/app_info.css";
 @import "./css/app_game.css";
 @import "./css//app_rules_show.css";
-@import "./css/app_game_start.css";
+@import "./css/app_game_start.css"; */
+@import url("css/app_info.css");
+@import url("css/app_game.css");
+@import url("css/app_game_start.css");
+@import url("css/app_rules_show.css");
 
 * {
   margin: 0;
